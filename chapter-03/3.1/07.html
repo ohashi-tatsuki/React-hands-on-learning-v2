@@ -10,18 +10,6 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <h1>Functional JavaScript</h1>
-    <p>Open the console</p>
-    <script type="text/babel">
-      // 高階関数をアロー関数で記述する
-      const createScream = logger => message =>
-        logger(message.toUpperCase() + "!!!");
-
-      const scream = createScream(message =>
-        console.log(message)
-      );
-
-      scream("ES6 can createScream with less");
-    </script>
+    
   </body>
 </html>

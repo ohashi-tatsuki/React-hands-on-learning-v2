@@ -10,29 +10,6 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <h1>Pure Functions</h1>
-    <p>Open the console</p>
-    <script type="text/babel">
-      var frederick = {
-        name: "Frederick Douglass",
-        canRead: false,
-        canWrite: false
-      };
-      // 純粋関数ではない
-      // 理由；
-      // ・引数のオブジェクトに変更を加えているから
-      const selfEducate = person => {
-        person.canRead = true;
-        person.canWrite = true;
-        return person;
-      };
-
-      //
-      // still impure, mutates the original object
-      //
-
-      console.log(selfEducate(frederick));
-      console.log(frederick);
-    </script>
+    
   </body>
 </html>
