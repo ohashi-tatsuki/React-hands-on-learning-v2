@@ -10,6 +10,27 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Imperative vs. Declarative</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 文字列中の空白をハイフンに変換する(命令型アプローチ)
+      var string = "Restaurants in Hanalei";
+      var urlFriendly = "";
+
+      for (var i = 0; i < string.length; i++) {
+        // 空白を判定
+        if (string[i] === "") {
+          // 空白にハイフンを追加 
+          urlFriendly += "-";
+        } else {
+          urlFriendly += string[i];
+        }
+      }
+
+      console.log(urlFriendly); // "Restaurants-in-Hanalei"
+
+      // 処理の流れを記述する
+      // 宣言型に比べて最後までソースを読まないと処理の結果が分かりにくいと言われる
+    </script> 
   </body>
 </html>

@@ -10,6 +10,18 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Imperative vs. Declarative</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 文字列中の空白をハイフンに変換する(宣言型アプローチ)
+      const string = "Restaurants in Hanalei";
+      // gオプションで空白をハイフンに置き換え
+      // replaceメソッドで指定した引数に合うように文字を処理する
+      const urlFriendly = string.replace(/ /g, "-");
+
+      console.log(urlFriendly);
+
+      // 命令型に比べて1行ごとの処理がわかりやすいと言われる
+    </script> 
   </body>
 </html>
