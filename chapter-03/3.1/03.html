@@ -10,5 +10,19 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      const obj = {
+        // 関数をオブジェクトのプロパティとして記述する
+        message: "They can added to objects like variables",
+        log(message) {
+          cosole.log(message);
+        }
+      };
+      
+      // objオブジェクトのmessageプロパティにアクセス
+      obj.log(obj.message);
+    </script>
   </body>
 </html>

@@ -10,6 +10,15 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    <!-- コードを追加 -->
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // varは巻き上げが起きるので近頃は使われない
+      var log = function(message) {
+        console.log(message);
+      };
+
+      log("In JavaScrpit funtions are variables");
+    </script>
   </body>
 </html>

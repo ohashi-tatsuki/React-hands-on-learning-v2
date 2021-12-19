@@ -10,6 +10,19 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Functional JavaScript</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      const messages = [
+        "They can be inserted into arrays",
+        message => console.log(message),
+        "like variables",
+        message => console.log(message)
+      ];
+
+      // messages配列の関数にアクセスしてから引数に配列の値を参照している。
+      messages[1](messages[0]); // They can be inserted into arrays
+      messages[3](messages[2]); // like variables
+    </script>
   </body>
 </html>
