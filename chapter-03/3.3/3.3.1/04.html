@@ -10,6 +10,28 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Immutability</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 色の配列を定義
+      let list = [
+        { title: "Rad Red" },
+        { title: "Lawn" },
+        { title: "Party Pink" }
+      ];
+
+      // 色を追加する関数
+      function addColor(title, array) {
+        // pushメソッドは破壊的メソッド
+        colors.push({ title: title });
+        return colors;
+      }
+
+      // Glam Greenを追加, 配列の長さを取得
+      console.log(addColor("Glam Green", list).length); // 4
+
+      // pushメソッドを使うと元の配列を更新する
+      console.log(list.length); // 4
+    </script>
   </body>
 </html>

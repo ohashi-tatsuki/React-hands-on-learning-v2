@@ -11,5 +11,24 @@
   </head>
   <body>
     
+    <h1>Immutability</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 色の配列を定義
+      let list = [
+        { title: "Rad Red" },
+        { title: "Lawn" },
+        { title: "Party Pink" }
+      ];
+
+      // 色を追加する関数
+      const addColor = (title, array) => [
+        ...list, // スプレッド構文で配列をコピー
+        { title } // この{}がちょっとわからん？
+      ];
+
+      console.log(addColor("Glam Green", list).length); // 4
+      console.log(list.length); // 3
+    </script>
   </body>
 </html>

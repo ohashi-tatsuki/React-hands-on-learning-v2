@@ -11,5 +11,25 @@
   </head>
   <body>
     
+    <h1>Immutability</h1>
+    <p>Open the console</p>
+    <script type="text/babel">
+      // 色の配列を定義
+      let list = [
+        { title: "Rad Red" },
+        { title: "Lawn" },
+        { title: "Party Pink" }
+      ];
+
+      // 色を追加する関数
+      // concatで配列をコピー
+      const addColor = (title, array) => array.concat({ title });
+
+      // Glam Greenを追加, 配列の長さを取得
+      console.log(addColor("Glam Green", list).length); // 4
+
+      // addColorがイミュータブルなアプローチになったので、元の配列を汚染しない
+      console.log(list.length); // 3
+    </script>
   </body>
 </html>
