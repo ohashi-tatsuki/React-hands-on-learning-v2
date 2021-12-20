@@ -10,6 +10,23 @@
 <h1>Arrow Functions</h1>
 <p>Open the console</p>
 <script type="text/babel">
+  // アロー関数(処理が複数の場合)
+  // 通常の関数とほぼ変わらないが、functionは省略できる
+  const lordify = (firstName, land) => {
+    // エラー判定を追加
+    if (!firstName) {
+      throw new Error('A firstName is required to lordify');
+    }
+
+    if (!land) {
+      throw new Error('A lord must have a land');
+    }
+
+    return `${firstName} of ${land}`;
+  };
+
+  console.log(lordify("Kelly", "Sonoma")); // Kelly of Sonoma
+  console.log(lordify("Dave")); // Error: A lord must have a land
 </script>
 </body>
 </html>

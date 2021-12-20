@@ -10,6 +10,22 @@
 <h1>Arrow Functions</h1>
 <p>Open the console</p>
 <script type="text/babel">
+  // 通常の関数
+  const lordify = function(firstName, land) {
+    // エラー判定を追加
+    if (!firstName) {
+      throw new Error('A firstName is required to lordify');
+    }
+
+    if (!land) {
+      throw new Error('A lord must have a land');
+    }
+
+    return `${firstName} of ${land}`;
+  };
+
+  console.log(lordify("Kelly", "Sonoma")); // Kelly of Sonoma
+  console.log(lordify("Dave")); // Error: A lord must have a land
 </script>
 </body>
 </html>
