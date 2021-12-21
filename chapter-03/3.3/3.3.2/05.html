@@ -12,6 +12,23 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Pure Functions</h1>
+    <script type="text/babel">
+      // DOMを操作する関数(純粋関数:Reactコンポーネント)
+      // 関数内でh1を作成
+      // 作成した要素を戻り値として返却している
+      const Header = props => <h1>{props.title}</h1>;
+
+      ReactDOM.render(
+        // 関数の外でDOMの値を変更している(副作用がない)
+        <Header title="React uses pure functions" />,
+        document.getElementById("react-container")
+      );
+
+      // JavaScriptで関数を書くときに気をつけること
+      // 1. 関数は少なくとも一つの引数を受け取らなければならない
+      // 2. 関数は値もしくは他の関数を戻り値として返却しなければならない
+      // 3. 関数は引数や関数外で定義された変数に直接変更を加えてはならない
+    </script>
   </body>
 </html>

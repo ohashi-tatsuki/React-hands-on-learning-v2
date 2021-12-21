@@ -10,6 +10,26 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-   
+    <h1>Pure Functions</h1>
+    <script type="text/babel">
+      const frederick = {
+        name: "Frederick Douglass",
+        canRead: false,
+        canWrite: false
+      };
+
+      // 純粋関数
+      const selfEducate = person => ({
+        ...person, // スプレッド構文でオブジェクトをコピー
+        canRead: true,
+        canWrite: true,
+      });
+
+      console.log(selfEducate(frederick));
+      console.log(frederick);
+
+      // {name: "Frederick Douglass", canRead: true, canWrite: true}
+      // {name: "Frederick Douglass", canRead: false, canWrite: false}, 副作用がない!
+    </script>
   </body>
 </html>

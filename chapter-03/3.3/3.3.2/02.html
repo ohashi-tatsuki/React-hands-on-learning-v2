@@ -10,6 +10,31 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   </head>
   <body>
-    
+    <h1>Pure Functions</h1>
+    <script type="text/babel">
+      const frederick = {
+        name: "Frederick Douglass",
+        canRead: false,
+        canWrite: false
+      };
+
+      // 純粋関数ではない
+      // - 引数のオブジェクトに変更を加えている
+      const selfEducate = person => {
+
+        // 関数の引数にオプジェクトを渡すことができる
+        frederick.canRead = true;
+        frederick.canWrite = true;
+
+        // 戻り値として返却
+        return person;
+      }
+
+      console.log(selfEducate(frederick));
+      console.log(frederick);
+
+      // {name: "Frederick Douglass", canRead: true, canWrite: true}
+      // {name: "Frederick Douglass", canRead: true, canWrite: true}, 参照元のオブジェクトが汚染されている
+    </script>
   </body>
 </html>
