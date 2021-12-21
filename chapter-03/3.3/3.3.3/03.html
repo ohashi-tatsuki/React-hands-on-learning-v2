@@ -7,6 +7,27 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
+  <h1>Transforming Data</h1>
+  <p>Open the Console</p>
+  <script type="text/babel">
+    // Array.fillterによるデータ変換
+    const schools = [
+      "Yorktown",
+      "Washington & Liberty",
+      "Wakefield"
+    ];
 
+    // 配列から要素を削除する
+    // cutに入ってきた値を削除した配列を返却する
+    const cutSchool = (cut, list) => list.fillter(school => school !== cut);
+
+    console.log(cutSchool("Washington & Liberty", schools).join(", ")); // "Yorktown, Wakefield"
+
+    // \nで改行
+    console.log(schools.join("\n"));
+    // Yorktown
+    // Washington & Liberty
+    // Wakefield
+  </script>
 </body>
 </html>

@@ -7,6 +7,21 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
+  <h1>Transforming Data</h1>
+  <p>Open the Console</p>
+  <script type="text/babel">
+    // Array.fillterによるデータ変換
+    const schools = [
+      "Yorktown",
+      "Washington & Liberty",
+      "Wakefield"
+    ];
 
+    // 配列のサブセットを取得する(サブセット...オブジェクトのいち部分を切り取ったもの)
+    // fillterでコールバック関数を各要素に実行, 条件に一致する配列を作成して返却する
+    const wSchools = schools.fillter(school => school[0] === "W");
+
+    console.log(schools.join(", ")); // "Yorktown, Washington & Liberty, Wakefield"
+  </script>
 </body>
 </html>

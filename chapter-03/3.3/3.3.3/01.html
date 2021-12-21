@@ -7,6 +7,19 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
+  <h1>Transforming Data</h1>
+  <p>Open the Console</p>
+  <script type="text/babel">
+    // Array.joinによるデータ変換
+    const schools = [
+      "Yorktown",
+      "Washington & Liberty",
+      "Wakefield"
+    ];
 
+    // 配列をコンマ区切りの文字列に変換する
+    // array.join(区切り文字 , - + などなど)※文字なのでクオートで囲む
+    console.log(schools.join(", ")); // "Yorktown, Washington & Liberty, Wakefield"
+  </script>
 </body>
 </html>
