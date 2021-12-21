@@ -10,6 +10,18 @@
   <h1>Transforming Data</h1>
   <p>Open the Console</p>
   <script type="text/babel">
+    // Array.reduceによるデータ変換
+    const colors = ["red", "red", "green", "blue", "green"];
+
+    // 配列からユニーク値のみによる配列を取得する
+    const uniqueColors = colors.reduce(
+      (unique, color) =>
+        unique.indexOf(color) !== -1 ? unique : [...unique, color],[]);
+
+      console.log(uniqueColors);
+      // ["red", "green", "blue"]
+
+      // mapやreduceを使って、あるデータセットから別のデータセットを取得できるようにする
   </script>
 </body>
 </html>

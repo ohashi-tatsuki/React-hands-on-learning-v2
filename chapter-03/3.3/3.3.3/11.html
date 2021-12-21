@@ -10,6 +10,58 @@
   <h1>Transforming Data</h1>
   <p>Open the Console</p>
   <script type="text/babel">
+  // Array.reduceによるデータ変換
+    const colors = [
+        {
+            id: 'xekare',
+            title: "rad red",
+            rating: 3
+        },
+        {
+            id: 'jbwsof',
+            title: "big blue",
+            rating: 2
+        },
+        {
+            id: 'prigbj',
+            title: "grizzly grey",
+            rating: 5
+        },
+        {
+            id: 'ryhbhsl',
+            title: "banana",
+            rating: 1
+        }
+    ];
+
+    // 配列をオブジェクトに変換する
+    const hashColors = colors.reduce((hash, {id, title, rating}) => {
+        // hashにidを代入?, キーをidとしたオブジェクトを作成
+        hash[id] = {title, rating};
+      return hash;
+      // 初期値が空のオブジェクト
+    }, {});
+
+    console.log(hashColors);
+    // {
+    //   xekare: {
+    //     title:"rad red",
+    //     rating:3
+    //   },
+    //   jbwsof: {
+    //     title:"big blue",
+    //     rating:2
+    //   },
+    //   prigbj: {
+    //     title:"grizzly grey",
+    //     rating:5
+    //   },
+    //   ryhbhsl: {
+    //     title:"banana",
+    //     rating:1
+    //   }
+    // }
+
   </script>
 </body>
 </html>

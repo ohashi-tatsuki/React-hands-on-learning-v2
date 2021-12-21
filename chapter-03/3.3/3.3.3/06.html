@@ -10,6 +10,32 @@
   <h1>Transforming Data</h1>
   <p>Open the Console</p>
   <script type="text/babel">
+    // Array.mapによるデータ変換
+    const schools = [
+       {name: "Yorktown"},
+       {name: "Stratford"},
+       {name: "Washington & Liberty"},
+       {name: "Wakefield"}
+    ];
+
+    // 配列の特定の要素のみを変更する
+    const editName = (oldName, name, arr) => 
+      arr.map(item => {
+        // oldNameがプロパティに存在するか
+        if (item.name === oldName) {
+          return {
+            ...item,
+            name
+          };
+        } else {
+          return item;
+        }
+    });
+
+    const updatedSchools = editName("Straford", "HB Woodlawn", schools);
+
+    console.log(updatedSchools[1]); // { name: "HB Woodlawn" }
+    console.log(schools[1]); // { name: "Stratford" }
   </script>
 </body>
 </html>

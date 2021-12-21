@@ -10,6 +10,27 @@
   <h1>Transforming Data</h1>
   <p>Open the Console</p>
   <script type="text/babel">
+    // Array.mapによるデータ変換
+    const schools = [
+      "Yorktown",
+      "Washington & Liberty",
+      "Wakefield"
+    ];
+
+    // 配列から内容の異なる同じサイズの配列を取得する(同じサイズ...要素の数が同じ)
+    // map以降の処理をして新しい配列を返却する ※(関数名 => 処理)あってる??
+    const highSchools = schools.map(school => `${school} High School`);
+
+    console.log(highSchools.join("\n"));
+    // Yorktown High School
+    // Washington & Liberty High School
+    // Wakefield High School
+
+    // schools配列の値はそのまま
+    console.log(schools.join("\n"));
+    // Yorktown
+    // Washington & Liberty
+    // Wakefield
   </script>
 </body>
 </html>

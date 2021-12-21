@@ -10,6 +10,22 @@
   <h1>Transforming Data</h1>
   <p>Open the Console</p>
   <script type="text/babel">
+    // Array.mapによるデータ変換
+    const schools = [
+      "Yorktown",
+      "Washington & Liberty",
+      "Wakefield"
+    ];
+
+    // schools配列をオブジェクトに変換
+    const highSchools = schools.map(schools => ({name: schools}));
+
+    console.log(highSchools);
+    // [
+    //   {name: "Yorktown"},
+    //   {name: "Washington & Liberty"},
+    //   {name: "Wakefield"}
+    // ]
   </script>
 </body>
 </html>
