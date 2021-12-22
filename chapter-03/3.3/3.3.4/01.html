@@ -7,6 +7,27 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
+  <h1>Higher Order Functions</h1>
+  <p>Open the Console</p>
+<script type="text/babel">
+  // 高階関数とは
+  // 1. 他の関数を引数に取る
+  // 2. 戻り値として関数を返す
+  // 3. 上記1,2をどちらも満たすもの
+
+  // 関数を引数に取る高階関数
+  const invokeIf = (condition, fnTrue, fnFalse) =>
+      (condition) ? fnTrue() : fnFalse();
+
+  const showWelcome = () => console.log("Welnome!!!");
+
+  const showUnauthorized = () => console.log("Unauthorized!!!");
+
+  // conditionの値によっていずれかのコールバックを呼び出す
+  // コールバック関数は関数の中で呼び出される関数, 今回はshowWelcome, showUnauthorized
+  invokeIf(true, showWelcome, showUnauthorized); // "Welcome!!!"
+  invokeIf(false, showWelcome, showUnauthorized); // "Unauthorized"
   
+</script>
 </body>
 </html>

@@ -7,6 +7,37 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
-  
+  <h1>Higher Order Functions</h1>
+  <p>Open the Console</p>
+<script type="text/babel">
+  const getFakeMembers = count => new Promise((resolves, rejects) => {
+      const api = `https://api.randomuser.me/?nat=US&results=${count}`;
+      const request = new XMLHttpRequest();
+      request.open('GET', api);
+      request.onload = () =>
+           (request.status === 200) ?
+            resolves(JSON.parse(request.response).results) :
+            reject(Error(request.statusText));
+      request.onerror = (err) => rejects(err);
+      request.send();
+    });
+
+    // 戻り値として関数を返す高階関数
+    const userLogs = userName => messgae => console.log(`${userName} -> ${messgae}`);
+
+    const log = userLogs("grandpa23");
+
+    log("attempted to load 20 fake members");
+    getFakeMembers(20).then(
+      // resolvedの処理
+      members => log(`successfully loaded ${members.length} members`)
+      ).catch(
+        // rejectedの処理
+        error => log("encountered an error loading members")
+      );
+
+    // grandpa23 -> attempt to load 20 fake members
+    // grandpa23 -> succesfully loaded 20 members
+</script>
 </body>
 </html>
