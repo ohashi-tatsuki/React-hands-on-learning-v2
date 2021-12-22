@@ -7,6 +7,35 @@
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 </head>
 <body>
-  
+  <h1>Recursion</h1>
+  <p>Open the Console</p>
+<script type="text/babel">
+    // 再帰によるデータ構造の探索
+    const dan = {
+        type: "person",
+        data: {
+          gender: "male",
+          info: {
+            id: 22,
+            fullname: {
+              first: "Dan",
+              last: "Deacon"
+            }
+          }
+        }
+      };
+      
+      const deepPick = (fields, object={}) => {
+        const [first, ...remaining] = fields.split(".")
+        return (remaining.length) ? deepPick(remaining.join("."), object[first]) : object[first]
+      };
+
+      console.log( deepPick("type", dan) ); // person
+      console.log( deepPick("data.info.fullname.first", dan) ); // Dan
+      
+      // 再帰
+      // forのように繰り返し処理をするテクニック
+      // 複雑な処理をするときにforよりもわかりやすく記述することができる
+</script>
 </body>
 </html>
