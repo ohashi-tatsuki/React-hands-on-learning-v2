@@ -10,7 +10,16 @@
   <h1>Composition</h1>
   <p>Open the Console</p>
 <script type="text/babel">
-  
+  // メソッドの連鎖
+  const templeate = "hh:mm:ss tt";
+  const clockTime = templeate
+    .replace("hh", "03")
+    .replace("mm", "33")
+    .replace("ss", "PM");
+
+    console.log(clockTime);
+
+    // "03:33:33 PM"
 </script>
 </body>
 </html>
