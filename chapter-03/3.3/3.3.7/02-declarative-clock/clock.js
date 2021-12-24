@@ -1,79 +1,72 @@
-// デジタル時計（関数型プログラミング的アプローチ）
-const oneSecond = () => 1000
-const getCurrentTime = () => new Date()
-const clear = () => console.clear()
-const log = message => console.log(message)
+// デジタル時計(関数型プログラミングアプローチ)
 
-const abstractClockTime = date =>
-    ({
-        hours: date.getHours(),
-        minutes: date.getMinutes(),
-        seconds: date.getSeconds()
-    })
+// 固定値の取得
+const oneSecond = () => 1000;
+const getCurrentTime = () => new Date();
+const clear = () => console.clear();
+const log = () => console.log(message);
 
-const civilianHours = clockTime =>
-    ({
-        ...clockTime,
-        hours: (clockTime.hours > 12) ?
-        clockTime.hours - 12 :
-            clockTime.hours
-    })
+// データの変換を行う
+const serializeClockTime = date => ({
+  hours: date.getHours(),
+  minutes: date.getMinutes(),
+  seconds: date.getSeconds()
+});
 
-const appendAMPM = clockTime =>
-    ({
-        ...clockTime,
-        ampm: (clockTime.hours >= 12) ? "PM" : "AM"
-    })
+const civilianHours = clockTime => ({
+  ...clockTime,
+  hours: clockTime.hours > 12 ? clockTime.hours - 12 : clockTime.hours
+});
 
-const display = target => time => target(time)
+const appendAMPM = clockTime => ({
+  ...clockTime,
+  ampm: clockTime.hours >= 12 ? "PM" : "AM"
+});
 
-const formatClock = format =>
-    time =>
-        format.replace("hh", time.hours)
-            .replace("mm", time.minutes)
-            .replace("ss", time.seconds)
-            .replace("tt", time.ampm)
+// 高階関数
+const display = target => time => target(time);
 
-const prependZero = key => clockTime =>
-    ({
-        ...clockTime,
-        [key]: (clockTime[key] < 10) ?
-        "0" + clockTime[key] :
-            clockTime[key]
-    })
+const formatClock = format => time =>
+  format.replace("hh", time.hours)
+        .replace("mm", time.minutes)
+        .replace("ss", time.seconds)
+        .replace("tt", time.ampm);
 
-const compose = (...fns) =>
-    (arg) =>
-        fns.reduce(
-            (composed, f) => f(composed),
-            arg
-        )
+const prependZero = key => clockTime => ({
+  ...clockTime,
+  [key]: clockTime[key] < 10 ? "0" + clockTime[key] : "" + clockTime[key]
+});
 
-const convertToCivilianTime = clockTime =>
+// 関数の合成
+const compose = (...fns) => (arg) =>
+  fns.reduce((composed, f) => f(composed), arg);
+
+const convertToCivilianTime = clockTime => 
+  compose(
+    appendAMPM,
+    civilianHours
+)(clockTime);
+
+const doubleDigits = civilianTame =>
     compose(
-        appendAMPM,
-        civilianHours
-    )(clockTime)
+      prependZero("hours"),
+      prependZero("minutes"),
+      prependZero("seconds"),
+    )(civilianTame);
 
-const doubleDigits = civilianTime =>
-    compose(
-        prependZero("hours"),
-        prependZero("minutes"),
-        prependZero("seconds")
-    )(civilianTime)
-
+// 以下に関数がまとめられていて、コードの読みやすさを感じる
 const startTicking = () =>
-    setInterval(
-        compose(
-            clear,
-            getCurrentTime,
-            abstractClockTime,
-            convertToCivilianTime,
-            doubleDigits,
-            formatClock("hh:mm:ss tt"),
-            display(log)
-        ),
-        oneSecond()
-    )
+  setInterval(
+    compose(
+      clear,
+      getCurrentTime,
+      serializeClockTime,
+      convertToCivilianTime,
+      doubleDigits,
+      formatClock("hh:mm:ss tt"),
+      display(log)
+    ),
+    oneSecond()
+  );
 
-startTicking()
+startTicking();
