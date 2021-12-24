@@ -14,6 +14,11 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
 <script>
+  // 複数のReact要素をブラウザに描画する
+  const dish = React.createElement("h1", null, "Baked Salmon");
+  const dessert = React.createElement("h2", null, "Coconut Cream Pie");
+
+  ReactDOM.render([dish, dessert], document.getElementById('react-container'));
 </script>
 
 </body>

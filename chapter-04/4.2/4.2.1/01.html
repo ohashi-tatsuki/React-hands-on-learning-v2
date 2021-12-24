@@ -14,6 +14,19 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
 <script>
+  // React要素をブラウザに描画する
+  // React要素  React.createElement(要素, プロパティ, 子要素);
+  // ※子要素には第一引数のタグに記述される値を渡す
+  const dish = React.createElement("h1", null, "Baked salmon");
+
+  // render(React要素, getElementById(ルートノード));
+  ReactDOM.render(
+    dish,
+    document.getElementById('react-container')
+  );
+
+  console.log('dish', dish);
+
 </script>
 
 </body>
