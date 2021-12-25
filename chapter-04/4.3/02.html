@@ -13,6 +13,33 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 
     <script>
+      // レシピの材料のコンポーネント(材料のデータを分離)
+      function IngredentsList({items}) {
+        return React.createElement(
+          "ul",
+          { className: "ingredinents" },
+          items.map((ingredent, i) =>
+            React.createElement("li", { key: i }, ingredent)
+          )
+        );
+      }
+
+      // 材料のデータ
+      const items = [
+        "1 cup unsalted butter",
+        "1 cup crunchy peanut butter",
+        "1 cup brown sugar",
+        "1 cup white sugar",
+        "2 eggs",
+        "2.5 cups all purpose flour",
+        "1 teaspoon baking powder",
+        "0.5 teaspoon salt"
+      ];
+
+      ReactDOM.render(
+        React.createElement(IngredientsList, {items}, null),
+        document.getElementById("react-container")
+      );
     </script>
   </body>
 </html>
