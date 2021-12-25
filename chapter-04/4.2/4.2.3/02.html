@@ -22,15 +22,17 @@
         "2 small lemons",
         "1 teaspoon kosher salt",
         "4 cloves of chopped garlic"
-    ]
+    ];
 
+    // ユニークなkeyを指定
+    // Reactから見たときにkeyが指定してあると扱いやすい
     const ingredients = React.createElement(
         "ul",
         { className: "ingredients" },
         items.map((ingredient, i) =>
             React.createElement("li", { key: i }, ingredient)
         )
-    )
+    );
 
     ReactDOM.render(
         ingredients,
