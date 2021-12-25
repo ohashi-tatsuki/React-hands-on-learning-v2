@@ -23,8 +23,8 @@
   <body>
     <div id="react-container"></div>
     <script type="text/babel">
-    // レシピのコンポーネントをJSXで記述する
-    const data = [
+      // レシピのコンポーネントをJSXで記述する
+      const data = [
       {
         name: "Baked Salmon",
         ingredients: [
@@ -62,7 +62,7 @@
     ];
 
     const Recipe = ({ name, ingredients, steps }) => (
-      <section id={name.toLowerCase().replace(/ /g, "-")}>
+       <section id={name.toLowerCase().replace(/ /g, "-")}>
         <h1>{name}</h1>
         <ul className="ingredients">
           {ingredients.map((ingredient, i) => (
@@ -75,26 +75,27 @@
             <p key={i}>{step}</p>
           ))}
         </section>
-      </section>
+       </section>
     );
 
     const Menu = ({ title, recipes }) => (
-      <article>
-        <header>
-          <h1>{title}</h1>
-        </header>
-        <div className="recipes">
-          {recipes.map((recipe, i) => (
-            <Recipe key={i} {...recipe} />
-          ))}
-        </div>
-      </article>
-    );
+        <article>
+          <header>
+            <h1>{title}</h1>
+          </header>
+          <div className="recipes">
+            {recipes.map((recipe, i) => (
+                <Recipe key={i} {...recipe} />
+            ))}
+          </div>
+        </article>
+    ); 
 
     ReactDOM.render(
       <Menu recipes={data} title="Delicious Recipes" />,
       document.getElementById("react-container")
     );
+
     </script>
   </body>
 </html>
