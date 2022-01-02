@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
+// 制御されたコンポーネント
 export default function AddColorForm({ onNewColor = f => f }) {
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("#000000");
