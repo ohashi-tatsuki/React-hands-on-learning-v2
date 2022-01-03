@@ -5,8 +5,8 @@ export default function AddColorForm({ onNewColor = f => f }) {
   const [titleProps, resetTitle] = useInput("");
   const [colorProps, resetColor] = useInput("#000000");
 
-  const submit = e => {
-    e.preventDefault();
+  const submit = event => {
+    event.preventDefault();
     onNewColor(titleProps.value, colorProps.value);
     resetTitle();
     resetColor();
@@ -18,10 +18,12 @@ export default function AddColorForm({ onNewColor = f => f }) {
         {...titleProps}
         type="text"
         placeholder="color title..."
+        // 入力アラートを表示
         required
       />
-      <input {...colorProps} type="color" required />
+      <input {...colorProps} type="color" required/>
       <button>ADD</button>
     </form>
   );
 }
+
