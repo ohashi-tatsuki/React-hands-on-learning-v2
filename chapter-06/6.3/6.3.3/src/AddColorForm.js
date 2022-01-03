@@ -1,4 +1,5 @@
 import React from "react";
+// カスタムフックをインポート
 import { useInput } from "./hooks";
 
 export default function AddColorForm({ onNewColor = f => f }) {

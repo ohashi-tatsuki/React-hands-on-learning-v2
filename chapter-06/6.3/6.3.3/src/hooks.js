@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// カスタムフックの宣言
 export const useInput = initialValue => {
   const [value, setValue] = useState(initialValue);
   return [
